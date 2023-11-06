@@ -19,7 +19,7 @@ const Autocomplete = ({ options, getOptions }) => {
   };
 
   let optionList = (
-    <ul className="options">
+    <ul className="options" role="listbox">
       {filteredOptions?.map((option, index) => {
         let className;
         if (index === activeOption) {
@@ -44,7 +44,12 @@ const Autocomplete = ({ options, getOptions }) => {
     <>
       {" "}
       <div className="search">
-        <input type="text" className="search-box" onChange={getVal} />
+        <input
+          type="text"
+          className="search-box"
+          onChange={getVal}
+          aria-autocomplete="list"
+        />
         <input type="submit" value="" className="search-btn" />
       </div>
       {showOptions &&

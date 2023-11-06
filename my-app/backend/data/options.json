@@ -1,18 +1,38 @@
 [
   {
     "id": "e1",
-    "text": "Web Dev Networking Night"
+    "text": "Bootstrap"
   },
   {
     "id": "e2",
-    "text": "City Hunt: Web Dev Edition"
+    "text": "React"
   },
   {
     "id": "e3",
-    "text": "Women in Web Development Mixer!"
+    "text": "Angular"
   },
   {
     "id": "e4",
-    "text": "Beginner's Guide to HTML & CSS"
+    "text": "Vue js"
+  },
+  {
+    "id": "e5",
+    "text": "React Redux"
+  },
+  {
+    "id": "e6",
+    "text": "Ant Design"
+  },
+  {
+    "id": "e7",
+    "text": "Git"
+  },
+  {
+    "id": "e8",
+    "text": "Grunt"
+  },
+  {
+    "id": "e9",
+    "text": "JQuery"
   }
 ]

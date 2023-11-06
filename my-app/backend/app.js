@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import bodyParser from "body-parser";
 import express from "express";
+import { fuzzySearch } from "./utils/fuzzy-search.js";
 
 const app = express();
 
@@ -23,11 +24,16 @@ app.get("/options", async (req, res) => {
   const { max, search } = req.query;
   const eventsFileContent = await fs.readFile("./data/options.json");
   let options = JSON.parse(eventsFileContent);
+  const fuzzyOptions = fuzzySearch(options, ["text"]);
+
+  console.log("here");
 
   if (search) {
-    options = options.filter((options) => {
-      return options.text.toLowerCase().includes(search.toLowerCase());
-    });
+    options = fuzzyOptions(search);
+    console.log(options);
+    // options = options.filter((options) => {
+    //   return options.text.toLowerCase().includes(search.toLowerCase());
+    // });
   }
 
   if (max) {
@@ -38,8 +44,8 @@ app.get("/options", async (req, res) => {
 
   res.json({
     options: options.map((options) => ({
-      id: options.id,
-      text: options.text,
+      id: options.item.id,
+      text: options.item.text,
     })),
   });
 });
